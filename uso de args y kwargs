@@ -1,0 +1,33 @@
+# Función que analiza varios textos
+# *args permite recibir múltiples cadenas de texto
+# **kwargs permite recibir opciones opcionales
+def analizar_texto(*args, **kwargs):
+
+    vocales = "aeiouAEIOU"
+    total_vocales = 0
+    total_palabras = 0
+
+    # Recorremos cada texto recibido
+    for texto in args:
+
+        # Si el usuario activó la opción contar_vocales
+        if kwargs.get("contar_vocales", False):
+            for letra in texto:
+                if letra in vocales:
+                    total_vocales += 1
+
+        # Si el usuario activó la opción contar_palabras
+        if kwargs.get("contar_palabras", False):
+            palabras = texto.split()  # Divide el texto por espacios
+            total_palabras += len(palabras)
+
+    # Mostrar resultados según las opciones seleccionadas
+    if kwargs.get("contar_vocales", False):
+        print("Total de vocales:", total_vocales)
+
+    if kwargs.get("contar_palabras", False):
+        print("Total de palabras:", total_palabras)
+
+
+# Ejemplo de uso
+analizar_texto("Hola mundo", "Python es genial", contar_vocales=True)
