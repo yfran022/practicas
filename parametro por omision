@@ -1,0 +1,20 @@
+# Función que calcula el precio final aplicando un descuento
+# El descuento por defecto es del 10%
+def calcular_descuento(precio, descuento=10):
+    precio_final = precio - (precio * descuento / 100)
+    return precio_final
+
+total = 0  # Variable para acumular el total a pagar
+
+# Pedimos al menos 3 precios al usuario
+for i in range(3):
+    precio = float(input(f"Ingrese el precio del producto {i+1}: "))
+
+    # Aplicamos el descuento usando la función
+    precio_final = calcular_descuento(precio)
+
+    # Sumamos el precio final al total
+    total += precio_final
+
+# Mostrar el total a pagar después del descuento
+print("Total a pagar:", total)
