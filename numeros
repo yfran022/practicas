@@ -1,0 +1,23 @@
+# Pedir al usuario un número entero positivo
+numero = int(input("Ingrese un número entero positivo: "))
+
+# Variable para contar cuántos números primos se encuentran
+contador = 0
+
+# Recorrer todos los números desde 2 hasta el número ingresado
+for n in range(2, numero + 1):
+    es_primo = True  # Suponemos que el número es primo
+
+    # Verificamos si el número tiene divisores
+    for i in range(2, n):
+        if n % i == 0:  # Si es divisible entre otro número
+            es_primo = False
+            break  # Dejamos de revisar porque ya no es primo
+
+    # Si después de verificar sigue siendo primo
+    if es_primo:
+        print(n)  # Imprimimos el número primo
+        contador += 1  # Aumentamos el contador
+
+# Mostrar la cantidad total de números primos encontrados
+print("Cantidad de números primos encontrados:", contador)
